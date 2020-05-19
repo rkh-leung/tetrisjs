@@ -1,0 +1,12 @@
+{
+  "name": "tetrisjs",
+  "version": "1.0.0",
+  "description": "A basic implementation of tetris in a browser",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raymond Leung",
+  "license": "ISC"
+}
