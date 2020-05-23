@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       draw()
       displayshape()
       addScore()
+      gameOver()
     }
   }
 
@@ -165,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Show up-next tetromino in mini-grid
   const displaySquares = document.querySelectorAll('.mini-grid div')
   const DISPLAY_WIDTH = 4
-  let displayIndex = 0
+  const displayIndex = 0
   let nextRandom = 0
 
   // The tetromino without rotation, [l z t o i]
@@ -226,6 +227,18 @@ document.addEventListener('DOMContentLoaded', () => {
         squares = squaresRemoved.concat(squares)
         squares.forEach(cell => GRID.appendChild(cell))
       }
+    }
+  }
+
+  // Game over
+  function gameOver () {
+    if (
+      current.some(index =>
+        squares[currentPosition + index].classList.contains('taken')
+      )
+    ) {
+      SCORE_DISPLAY.innerHTML = 'end'
+      clearInterval(timerId)
     }
   }
 })
