@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       moveDown()
     }
   }
-  document.addEventListener('keyup', control)
+  document.addEventListener('keydown', control)
 
   // Move down function
   function moveDown () {
@@ -178,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, DISPLAY_WIDTH * 3 + 1]
   ]
 
+  // Display the shape in the mini-grid display
   function displayshape () {
     displaySquares.forEach(square => {
       square.classList.remove('tetromino')
