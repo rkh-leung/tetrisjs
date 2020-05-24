@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const displayIndex = 0
 
   let nextRandom = 0
-  let squares = Array.from(document.querySelectorAll('.grid div'))
+  let squares = [...document.querySelectorAll('.grid div')]
   let timerId
   let score = 0
   let currentPosition = 4
