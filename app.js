@@ -2,16 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const GRID = document.querySelector('.grid')
   const SCORE_DISPLAY = document.querySelector('#score')
   const START_BTN = document.querySelector('#start-button')
+  const displaySquares = document.querySelectorAll('.mini-grid div')
+
   const GRID_WIDTH = 10
-  let squares = Array.from(document.querySelectorAll('.grid div'))
-  let timerId
-  let score = 0
-  let currentPosition = 4
-  let currentRotation = 0
+  const DISPLAY_WIDTH = 4
+  const displayIndex = 0
 
-  document.addEventListener('keydown', control)
-
-  // The Tetrominoes
   const lTetromino = [
     [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, 2],
     [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 2],
@@ -55,8 +51,24 @@ document.addEventListener('DOMContentLoaded', () => {
     iTetromino
   ]
 
+  const upNextTetrominoes = [
+    [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, 2],
+    [0, DISPLAY_WIDTH, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1],
+    [1, DISPLAY_WIDTH, DISPLAY_WIDTH + 1, DISPLAY_WIDTH + 2],
+    [0, 1, DISPLAY_WIDTH, DISPLAY_WIDTH + 1],
+    [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, DISPLAY_WIDTH * 3 + 1]
+  ]
+
+  let nextRandom = 0
+  let squares = Array.from(document.querySelectorAll('.grid div'))
+  let timerId
+  let score = 0
+  let currentPosition = 4
+  let currentRotation = 0
   let random = Math.floor(Math.random() * theTetrominoes.length)
   let current = theTetrominoes[random][0]
+
+  document.addEventListener('keydown', control)
 
   // Draw the tetromino
   function draw () {
@@ -163,21 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
     current = theTetrominoes[random][currentRotation]
     draw()
   }
-
-  // Show up-next tetromino in mini-grid
-  const displaySquares = document.querySelectorAll('.mini-grid div')
-  const DISPLAY_WIDTH = 4
-  const displayIndex = 0
-  let nextRandom = 0
-
-  // The tetromino without rotation, [l z t o i]
-  const upNextTetrominoes = [
-    [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, 2],
-    [0, DISPLAY_WIDTH, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1],
-    [1, DISPLAY_WIDTH, DISPLAY_WIDTH + 1, DISPLAY_WIDTH + 2],
-    [0, 1, DISPLAY_WIDTH, DISPLAY_WIDTH + 1],
-    [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, DISPLAY_WIDTH * 3 + 1]
-  ]
 
   // Display the shape in the mini-grid display
   function displayshape () {
