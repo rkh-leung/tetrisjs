@@ -1,9 +1,13 @@
-import { GRID_WIDTH, theTetrominoes, upNextTetrominoes } from './tetrominoes.js'
+import {
+  GRID_WIDTH,
+  THE_TETROMINOES,
+  UP_NEXT_TETROMINOES
+} from './tetrominoes.js'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const GRID = document.querySelector('.grid')
-  const SCORE_DISPLAY = document.querySelector('#score')
-  const START_BTN = document.querySelector('#start-button')
+  const grid = document.querySelector('.grid')
+  const scoreDisplay = document.querySelector('#score')
+  const startBtn = document.querySelector('#start-button')
   const displaySquares = document.querySelectorAll('.mini-grid div')
   const displayIndex = 0
 
@@ -13,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let score = 0
   let currentPosition = 4
   let currentRotation = 0
-  let random = Math.floor(Math.random() * theTetrominoes.length)
-  let current = theTetrominoes[random][0]
+  let random = Math.floor(Math.random() * THE_TETROMINOES.length)
+  let current = THE_TETROMINOES[random][0]
 
   document.addEventListener('keydown', control)
 
@@ -66,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[currentPosition + index].classList.add('taken')
       )
       // Start a new tetromino falling
-      nextRandom = Math.floor(Math.random() * theTetrominoes.length)
+      nextRandom = Math.floor(Math.random() * THE_TETROMINOES.length)
       random = nextRandom
-      current = theTetrominoes[random][currentRotation]
+      current = THE_TETROMINOES[random][currentRotation]
       currentPosition = 4
       draw()
       displayshape()
@@ -120,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentRotation === current.length) {
       currentRotation = 0
     }
-    current = theTetrominoes[random][currentRotation]
+    current = THE_TETROMINOES[random][currentRotation]
     draw()
   }
 
@@ -129,20 +133,20 @@ document.addEventListener('DOMContentLoaded', () => {
     displaySquares.forEach(square => {
       square.classList.remove('tetromino')
     })
-    upNextTetrominoes[nextRandom].forEach(index => {
+    UP_NEXT_TETROMINOES[nextRandom].forEach(index => {
       displaySquares[displayIndex + index].classList.add('tetromino')
     })
   }
 
   // Add functionality to the button
-  START_BTN.addEventListener('click', () => {
+  startBtn.addEventListener('click', () => {
     if (timerId) {
       clearInterval(timerId)
       timerId = null
     } else {
       draw()
       timerId = setInterval(moveDown, 1000)
-      nextRandom = Math.floor(Math.random() * theTetrominoes.length)
+      nextRandom = Math.floor(Math.random() * THE_TETROMINOES.length)
       displayshape()
     }
   })
@@ -165,14 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (row.every(index => squares[index].classList.contains('taken'))) {
         score += 10
-        SCORE_DISPLAY.innerHTML = score
+        scoreDisplay.innerHTML = score
         row.forEach(index => {
           squares[index].classList.remove('taken')
           squares[index].classList.remove('tetromino')
         })
         const squaresRemoved = squares.splice(i, GRID_WIDTH)
         squares = squaresRemoved.concat(squares)
-        squares.forEach(cell => GRID.appendChild(cell))
+        squares.forEach(cell => grid.appendChild(cell))
       }
     }
   }
@@ -184,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[currentPosition + index].classList.contains('taken')
       )
     ) {
-      SCORE_DISPLAY.innerHTML = 'end'
+      scoreDisplay.innerHTML = 'end'
       clearInterval(timerId)
     }
   }

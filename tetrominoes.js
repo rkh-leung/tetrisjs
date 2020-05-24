@@ -1,42 +1,42 @@
 export const GRID_WIDTH = 10
-const DISPLAY_WIDTH = 4
+const displayWidth = 4
 
-export const lTetromino = [
+const lTetromino = [
   [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, 2],
   [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 2],
   [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, GRID_WIDTH * 2],
   [GRID_WIDTH, GRID_WIDTH * 2, GRID_WIDTH * 2 + 1, GRID_WIDTH * 2 + 2]
 ]
 
-export const zTetromino = [
+const zTetromino = [
   [0, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1],
   [GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2, GRID_WIDTH * 2 + 1],
   [0, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1],
   [GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2, GRID_WIDTH * 2 + 1]
 ]
 
-export const tTetromino = [
+const tTetromino = [
   [1, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2],
   [1, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 1],
   [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 1],
   [1, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1]
 ]
 
-export const oTetromino = [
+const oTetromino = [
   [0, 1, GRID_WIDTH, GRID_WIDTH + 1],
   [0, 1, GRID_WIDTH, GRID_WIDTH + 1],
   [0, 1, GRID_WIDTH, GRID_WIDTH + 1],
   [0, 1, GRID_WIDTH, GRID_WIDTH + 1]
 ]
 
-export const iTetromino = [
+const iTetromino = [
   [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, GRID_WIDTH * 3 + 1],
   [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH + 3],
   [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, GRID_WIDTH * 3 + 1],
   [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH + 3]
 ]
 
-export const theTetrominoes = [
+export const THE_TETROMINOES = [
   lTetromino,
   zTetromino,
   tTetromino,
@@ -44,10 +44,10 @@ export const theTetrominoes = [
   iTetromino
 ]
 
-export const upNextTetrominoes = [
-  [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, 2],
-  [0, DISPLAY_WIDTH, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1],
-  [1, DISPLAY_WIDTH, DISPLAY_WIDTH + 1, DISPLAY_WIDTH + 2],
-  [0, 1, DISPLAY_WIDTH, DISPLAY_WIDTH + 1],
-  [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, DISPLAY_WIDTH * 3 + 1]
+export const UP_NEXT_TETROMINOES = [
+  [1, displayWidth + 1, displayWidth * 2 + 1, 2],
+  [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1],
+  [1, displayWidth, displayWidth + 1, displayWidth + 2],
+  [0, 1, displayWidth, displayWidth + 1],
+  [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1]
 ]
