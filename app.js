@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let squares = Array.from(document.querySelectorAll('.grid div'))
   let timerId
   let score = 0
+  let currentPosition = 4
+  let currentRotation = 0
+
+  document.addEventListener('keydown', control)
 
   // The Tetrominoes
   const lTetromino = [
@@ -51,8 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     iTetromino
   ]
 
-  let currentPosition = 4
-  let currentRotation = 0
   let random = Math.floor(Math.random() * theTetrominoes.length)
   let current = theTetrominoes[random][0]
 
@@ -82,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
       moveDown()
     }
   }
-  document.addEventListener('keydown', control)
 
   // Move down function
   function moveDown () {
