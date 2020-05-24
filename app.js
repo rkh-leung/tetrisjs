@@ -1,63 +1,11 @@
+import { GRID_WIDTH, theTetrominoes, upNextTetrominoes } from './tetrominoes.js'
+
 document.addEventListener('DOMContentLoaded', () => {
   const GRID = document.querySelector('.grid')
   const SCORE_DISPLAY = document.querySelector('#score')
   const START_BTN = document.querySelector('#start-button')
   const displaySquares = document.querySelectorAll('.mini-grid div')
-
-  const GRID_WIDTH = 10
-  const DISPLAY_WIDTH = 4
   const displayIndex = 0
-
-  const lTetromino = [
-    [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, 2],
-    [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 2],
-    [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, GRID_WIDTH * 2],
-    [GRID_WIDTH, GRID_WIDTH * 2, GRID_WIDTH * 2 + 1, GRID_WIDTH * 2 + 2]
-  ]
-
-  const zTetromino = [
-    [0, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1],
-    [GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2, GRID_WIDTH * 2 + 1],
-    [0, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1],
-    [GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2, GRID_WIDTH * 2 + 1]
-  ]
-
-  const tTetromino = [
-    [1, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2],
-    [1, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 1],
-    [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 1],
-    [1, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1]
-  ]
-
-  const oTetromino = [
-    [0, 1, GRID_WIDTH, GRID_WIDTH + 1],
-    [0, 1, GRID_WIDTH, GRID_WIDTH + 1],
-    [0, 1, GRID_WIDTH, GRID_WIDTH + 1],
-    [0, 1, GRID_WIDTH, GRID_WIDTH + 1]
-  ]
-
-  const iTetromino = [
-    [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, GRID_WIDTH * 3 + 1],
-    [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH + 3],
-    [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, GRID_WIDTH * 3 + 1],
-    [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH + 3]
-  ]
-
-  const theTetrominoes = [
-    lTetromino,
-    zTetromino,
-    tTetromino,
-    oTetromino,
-    iTetromino
-  ]
-
-  const upNextTetrominoes = [
-    [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, 2],
-    [0, DISPLAY_WIDTH, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1],
-    [1, DISPLAY_WIDTH, DISPLAY_WIDTH + 1, DISPLAY_WIDTH + 2],
-    [0, 1, DISPLAY_WIDTH, DISPLAY_WIDTH + 1],
-    [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, DISPLAY_WIDTH * 3 + 1]
-  ]
 
   let nextRandom = 0
   let squares = Array.from(document.querySelectorAll('.grid div'))
