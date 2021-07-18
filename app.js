@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       current = THE_TETROMINOES[random][currentRotation]
       currentPosition = 4
       draw()
-      displayshape()
+      displayShape()
       addScore()
       gameOver()
     }
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Display the shape in the mini-grid display
-  function displayshape () {
+  function displayShape () {
     displaySquares.forEach(square => {
       square.classList.remove('tetromino')
     })
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       draw()
       timerId = setInterval(moveDown, 1000)
       nextRandom = Math.floor(Math.random() * THE_TETROMINOES.length)
-      displayshape()
+      displayShape()
     }
   })
 
@@ -183,13 +183,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Game over
   function gameOver () {
-    if (
-      current.some(index =>
+    if (current.some(index =>
         squares[currentPosition + index].classList.contains('taken')
-      )
-    ) {
+      )) {
       scoreDisplay.innerHTML = 'end'
       clearInterval(timerId)
+      document.removeEventListener('keydown', control)
     }
   }
 })
